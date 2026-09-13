@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Abdul Rahim Dudekula — Software Engineer bridging enterprise .NET/ERP systems and Generative AI / Agentic AI.">
+<title>Abdul Rahim Dudekula</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --surface-alt: #eceef2;
+    --ink: #14181f;
+    --ink-soft: #4a5160;
+    --ink-faint: #7b8391;
+    --border: #d9dce2;
+    --accent: #b8622e;
+    --accent-soft: #b8622e1a;
+    --accent2: #1f7a73;
+    --accent2-soft: #1f7a731a;
+    --shadow: 0 1px 2px rgba(20, 24, 31, 0.04), 0 8px 24px rgba(20, 24, 31, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1216;
+      --surface: #171b21;
+      --surface-alt: #1e232b;
+      --ink: #e8eaee;
+      --ink-soft: #a6aebb;
+      --ink-faint: #6c7583;
+      --border: #2a2f38;
+      --accent: #e2924f;
+      --accent-soft: #e2924f26;
+      --accent2: #4fd0c1;
+      --accent2-soft: #4fd0c126;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0f1216;
+    --surface: #171b21;
+    --surface-alt: #1e232b;
+    --ink: #e8eaee;
+    --ink-soft: #a6aebb;
+    --ink-faint: #6c7583;
+    --border: #2a2f38;
+    --accent: #e2924f;
+    --accent-soft: #e2924f26;
+    --accent2: #4fd0c1;
+    --accent2-soft: #4fd0c126;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 0;
+  }
+
+  h1, h2, h3 { font-family: 'Newsreader', Georgia, serif; text-wrap: balance; margin: 0; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  a { color: inherit; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 3vw, 28px);
+    height: 52px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-mark {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    margin-right: auto;
+  }
+  .nav-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--ink); border-color: var(--accent); }
+  .nav-link .num { color: var(--accent); }
+
+  /* ---------- Shell ---------- */
+  main { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding-block: 56px 44px;
+    border-bottom: 1px solid var(--border);
+  }
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; padding-block: 36px 32px; }
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.08;
+    margin-top: 10px;
+  }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .role-line {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-top: 14px;
+    max-width: 46ch;
+  }
+  .role-line .genai { color: var(--accent2); font-weight: 600; }
+  .pitch {
+    margin-top: 16px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    font-size: 0.98rem;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--surface);
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .contact-pill:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .contact-pill.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  /* ---------- Diagram ---------- */
+  .diagram-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 16px 14px;
+    box-shadow: var(--shadow);
+  }
+  .diagram-wrap svg { width: 100%; height: auto; display: block; }
+  .diagram-caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding-block: 44px; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 22px; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 500; }
+  .section-head .eyebrow { flex-shrink: 0; }
+
+  .lede { color: var(--ink-soft); max-width: 68ch; font-size: 1rem; }
+
+  /* ---------- Competencies (about) ---------- */
+  .competency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 22px;
+  }
+  @media (max-width: 560px) { .competency-grid { grid-template-columns: 1fr; } }
+  .competency {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 14px;
+    background: var(--surface);
+  }
+  .competency .k { font-weight: 600; font-size: 0.9rem; }
+  .competency .v { color: var(--ink-soft); font-size: 0.84rem; margin-top: 3px; }
+
+  /* ---------- Skills ---------- */
+  .skill-group { margin-bottom: 20px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot.enterprise { background: var(--accent); }
+  .dot.genai { background: var(--accent2); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 0.82rem;
+    padding: 6px 11px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink-soft);
+  }
+  .tag.enterprise { border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); background: var(--accent-soft); color: var(--ink); }
+  .tag.genai { border-color: color-mix(in srgb, var(--accent2) 35%, var(--border)); background: var(--accent2-soft); color: var(--ink); }
+
+  /* ---------- Experience ---------- */
+  .job-header { margin-bottom: 24px; }
+  .job-title { font-size: 1.15rem; font-weight: 600; }
+  .job-meta { color: var(--ink-soft); font-size: 0.9rem; margin-top: 3px; }
+
+  .module {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .module[open] { box-shadow: var(--shadow); }
+  .module summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .module summary::-webkit-details-marker { display: none; }
+  .module-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .module-title { font-weight: 600; font-size: 0.98rem; }
+  .module-sub { color: var(--ink-soft); font-size: 0.84rem; }
+  .chevron {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .module[open] .chevron { transform: rotate(45deg); }
+  .module-body { padding: 0 18px 18px; }
+  .module-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .module-tags .tag { font-size: 0.72rem; padding: 4px 9px; }
+  ul.bullets { margin: 0; padding-left: 1.1em; display: flex; flex-direction: column; gap: 9px; }
+  ul.bullets li { font-size: 0.92rem; color: var(--ink-soft); }
+  ul.bullets li::marker { color: var(--ink-faint); }
+  ul.bullets strong { color: var(--ink); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* ---------- Education ---------- */
+  .edu-item { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; padding: 16px 0; border-top: 1px solid var(--border); }
+  .edu-item:first-child { border-top: none; }
+  .edu-degree { font-weight: 600; font-size: 0.98rem; }
+  .edu-school { color: var(--ink-soft); font-size: 0.88rem; margin-top: 2px; }
+  .edu-date { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-faint); white-space: nowrap; align-self: start; }
+
+  /* ---------- Footer / contact ---------- */
+  footer { padding-block: 48px 60px; }
+  .footer-card {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .footer-card h2 { color: var(--bg); font-size: 1.7rem; font-weight: 500; }
+  .footer-card p { color: color-mix(in srgb, var(--bg) 70%, transparent); margin-top: 10px; }
+  .footer-actions { display: flex; justify-content: center; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+  .footer-actions .contact-pill { background: transparent; border-color: color-mix(in srgb, var(--bg) 30%, transparent); color: var(--bg); }
+  .footer-actions .contact-pill.primary { background: var(--accent); border-color: var(--accent); color: var(--ink); }
+  .foot-note { text-align: center; margin-top: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--ink-faint); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner" id="nav-inner">
+    <span class="nav-mark">ARD</span>
+    <a class="nav-link" href="#about"><span class="num">01</span> about</a>
+    <a class="nav-link" href="#experience"><span class="num">02</span> experience</a>
+    <a class="nav-link" href="#skills"><span class="num">03</span> skills</a>
+    <a class="nav-link" href="#education"><span class="num">04</span> education</a>
+    <a class="nav-link" href="#contact"><span class="num">05</span> contact</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="top">
+    <div>
+      <div class="eyebrow">Hyderabad, India</div>
+      <h1>Abdul Rahim<br><em>Dudekula</em></h1>
+      <div class="role-line">Software Engineer — .NET &amp; Enterprise Integration, now building <span class="genai">Agentic AI</span> into ERP systems.</div>
+      <p class="pitch">5 years shipping production backend systems on Infor's CloudSuite platform — SQL Server, ASP.NET Core, ML-driven matching — and, most recently, the tool layer and agent workflows that let LLMs operate on that same ERP data.</p>
+      <div class="contact-row">
+        <a class="contact-pill primary" href="mailto:abdulrahim.dudekula04@gmail.com">✉ Email me</a>
+        <span class="contact-pill">📍 Hyderabad, India</span>
+        <span class="contact-pill">📞 +91 94901 49028</span>
+      </div>
+    </div>
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 320 200" role="img" aria-label="Diagram: ERP system connects through an MCP server to an AI agent, which also draws from a RAG knowledge base">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--ink-faint)"></path>
+          </marker>
+        </defs>
+        <!-- ERP node -->
+        <rect x="10" y="70" width="82" height="56" rx="9" fill="var(--surface-alt)" stroke="var(--accent)" stroke-width="1.4"></rect>
+        <text x="51" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="600" fill="var(--ink)">CSD ERP</text>
+        <text x="51" y="107" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="var(--ink-soft)">.NET / SQL</text>
+
+        <!-- MCP node -->
+        <rect x="119" y="70" width="82" height="56" rx="9" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.4"></rect>
+        <text x="160" y="90" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="600" fill="var(--ink)">MCP</text>
+        <text x="160" y="102" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="var(--ink-soft)">tool</text>
+        <text x="160" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="var(--ink-soft)">server</text>
+
+        <!-- Agent node -->
+        <rect x="228" y="70" width="82" height="56" rx="9" fill="var(--surface-alt)" stroke="var(--accent2)" stroke-width="1.4"></rect>
+        <text x="269" y="90" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" font-weight="600" fill="var(--ink)">AI Agent</text>
+        <text x="269" y="102" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="var(--ink-soft)">LangGraph</text>
+        <text x="269" y="112" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" fill="var(--ink-soft)">/ CrewAI</text>
+
+        <!-- connecting arrows -->
+        <line x1="94" y1="98" x2="116" y2="98" stroke="var(--ink-faint)" stroke-width="1.3" marker-end="url(#arrow)"></line>
+        <line x1="203" y1="98" x2="225" y2="98" stroke="var(--ink-faint)" stroke-width="1.3" marker-end="url(#arrow)"></line>
+
+        <!-- RAG branch -->
+        <rect x="228" y="150" width="82" height="34" rx="8" fill="var(--surface)" stroke="var(--border)" stroke-width="1.2"></rect>
+        <text x="269" y="167" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7.5" font-weight="600" fill="var(--ink-soft)">FAISS</text>
+        <text x="269" y="177" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="6.8" fill="var(--ink-faint)">RAG index</text>
+        <line x1="269" y1="126" x2="269" y2="147" stroke="var(--border)" stroke-width="1.2"></line>
+
+        <!-- top labels -->
+        <text x="105" y="55" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="var(--ink-faint)">REST</text>
+        <text x="214" y="55" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="var(--ink-faint)">tool call</text>
+      </svg>
+      <div class="diagram-caption">how the CSD agents reach live ERP data</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head"><span class="eyebrow">01 / about</span><h2>Profile</h2></div>
+    <p class="lede">Software Engineer with 5 years of experience designing, building, and optimizing scalable enterprise applications using C#, ASP.NET Core, .NET, SQL Server, and RESTful APIs, alongside Python for Machine Learning model development. Proven track record delivering production-grade commercial software in Agile/Scrum environments, with hands-on experience in backend architecture, database performance tuning, enterprise system integration, and automated testing. Most recently, built Generative AI / Agentic AI solutions for CloudSuite Distribution (CSD) — including an MCP server exposing ERP REST APIs as LLM-callable tools and an Agentic RAG-based document intelligence agent — using Python, LangChain, LangGraph, and FastMCP.</p>
+    <div class="competency-grid">
+      <div class="competency"><div class="k">Ownership &amp; accountability</div><div class="v">Delivers production-ready commercial software on schedule</div></div>
+      <div class="competency"><div class="k">Cross-functional collaboration</div><div class="v">Works across engineering, QA, and data science teams</div></div>
+      <div class="competency"><div class="k">Problem-solving &amp; debugging</div><div class="v">Systematic root cause analysis on production issues</div></div>
+      <div class="competency"><div class="k">Agile/Scrum leadership</div><div class="v">Sprint planning, backlog refinement, story point estimation</div></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head"><span class="eyebrow">02 / experience</span><h2>Experience</h2></div>
+    <div class="job-header">
+      <div class="job-title">Infor India Pvt Ltd</div>
+      <div class="job-meta">Software Engineer — Development, Enterprise Integration, ML-Driven Systems &amp; Generative AI · December 2021 – Present</div>
+    </div>
+
+    <details class="module" open>
+      <summary>
+        <div class="module-title-wrap">
+          <div class="module-title">CloudSuite Distribution (CSD) — Generative AI &amp; Agentic AI Development</div>
+          <div class="module-sub">MCP server, backend/API integration, and an Agentic RAG document agent</div>
+        </div>
+        <span class="chevron">+</span>
+      </summary>
+      <div class="module-body">
+        <div class="module-tags">
+          <span class="tag genai">MCP</span><span class="tag genai">FastMCP</span><span class="tag genai">LangGraph</span><span class="tag genai">LangChain</span><span class="tag genai">Agentic RAG</span><span class="tag genai">CrewAI</span>
+        </div>
+        <ul class="bullets">
+          <li>Developed an <strong>MCP (Model Context Protocol) server</strong> using Python and FastMCP, exposing REST API endpoints as LLM-callable tools for ERP integration covering product pricing, quote/order management, credit checks, and customer service automation.</li>
+          <li>Built and integrated backend REST APIs connecting core .NET/SQL Server ERP systems with LangChain- and LangGraph-based AI agent workflows, enabling AI Agents to autonomously query and act on live ERP data.</li>
+          <li>Contributed to an <strong>Enterprise Document Intelligence Agent</strong> built on Agentic RAG (Retrieval, Corrective, Adaptive) patterns — including multi-document retrieval, document grading, hallucination validation, and web search fallback — for reliable Q&amp;A over PDF, DOCX, and CSV knowledge bases.</li>
+          <li>Collaborated with the GenAI engineering team to design multi-agent orchestration workflows (LangGraph/CrewAI), extending ERP capabilities with LLM-powered automation.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-wrap">
+          <div class="module-title">ML-Integrated Duplication Matching System</div>
+          <div class="module-sub">Python + SQL matching engine for Customer/Vendor records</div>
+        </div>
+        <span class="chevron">+</span>
+      </summary>
+      <div class="module-body">
+        <div class="module-tags"><span class="tag">Python</span><span class="tag">SQL Server</span><span class="tag">ML Ranking</span></div>
+        <ul class="bullets">
+          <li>Built the Machine Learning matching engine in Python to filter candidate Customer/Vendor records and retrieve the best match using name, address, and accounting entity attributes.</li>
+          <li>Implemented filtering, scoring, and ranking logic in Python to identify and surface the top matching record from the candidate result set, improving duplicate-detection accuracy.</li>
+          <li>Designed and created SQL Server views to structure and supply the underlying data consumed by the Python matching engine.</li>
+          <li>Optimized SQL queries and views to support high-performance, ML-driven matching operations at scale without degrading data-retrieval times.</li>
+          <li>Partnered with data science and cross-functional engineering teams to validate matching accuracy and refine the model's filtering logic based on real-world data patterns.</li>
+          <li>Wrote unit tests for the Python matching logic to ensure filtering and ranking accuracy, performance, and maintainability prior to release.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-wrap">
+          <div class="module-title">Global Packaging (GP) — Automated Deployment &amp; Release Management</div>
+          <div class="module-sub">Namespace-based artifact packaging across five environment tiers</div>
+        </div>
+        <span class="chevron">+</span>
+      </summary>
+      <div class="module-body">
+        <div class="module-tags"><span class="tag">Release Automation</span><span class="tag">CI/CD</span></div>
+        <ul class="bullets">
+          <li>Implemented automated deployment packages using Global Packaging (GP), assigning namespaces to modules and artifacts to enable consistent, repeatable releases without manual intervention.</li>
+          <li>Used namespace-based artifact packaging to promote modules seamlessly across Test, Dev, Staging, Pre-Production, and multiple tenant environments, eliminating manual configuration steps at each stage.</li>
+          <li>Applied GP to automate deployment of ML model artifacts and related content, reducing release turnaround time and removing manual, error-prone deployment steps.</li>
+          <li>Contributed to CI/CD-style release practices by standardizing artifact versioning and namespace management, improving deployment reliability and repeatability across environments.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="module">
+      <summary>
+        <div class="module-title-wrap">
+          <div class="module-title">Infor Service Management (ISM) — Enterprise Integration</div>
+          <div class="module-sub">C# / .NET, SQL Server · BOD integrations, testing, sprint leadership</div>
+        </div>
+        <span class="chevron">+</span>
+      </summary>
+      <div class="module-body">
+        <div class="module-tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Playwright</span><span class="tag">BODs</span></div>
+        <ul class="bullets">
+          <li>Developed and optimized SQL Server queries, stored procedures, views, and indexes for core ISM modules, improving workflow performance by <strong>over 30%</strong> across several high-traffic processes.</li>
+          <li>Maintained and enhanced C#/.NET backend logic supporting ISM forms and business rules, ensuring high reliability across multiple client-specific implementations.</li>
+          <li>Championed the introduction of Playwright automated UI testing within the ISM project, replacing manual test cycles and saving <strong>5+ hours per week</strong> of QA effort.</li>
+          <li>Initiated and led CSD (Custom Solution Development) programming efforts, enabling seamless, reliable cross-system communication through Business Object Documents (BODs).</li>
+          <li>Designed and developed reusable, scalable BOD integration templates that reduced integration effort on new client rollouts.</li>
+          <li>Conducted root cause analysis on customer-reported production issues, delivering timely fixes that improved system stability and customer satisfaction.</li>
+          <li>Partnered with QA teams to build detailed test plans and conduct regression testing, achieving a <strong>25% reduction</strong> in manual testing errors.</li>
+          <li>Led <strong>67+ backlog refinement and sprint planning sessions</strong>, coordinating cross-functional engineering efforts and aligning priorities across development, QA, and product.</li>
+          <li>Owned sprint planning tasks end-to-end: delegated high-priority tickets, estimated story points for SQL-heavy features, and tracked delivery against sprint commitments.</li>
+          <li>Authored and maintained technical documentation for backend processes, API contracts, and integration flows, accelerating onboarding for new engineers.</li>
+          <li>Participated actively in peer code reviews, enforcing coding standards, query optimization practices, and database design best practices.</li>
+          <li>Collaborated with product owners and clients to gather requirements and translate business needs into scalable technical solutions within Agile sprints.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><span class="eyebrow">03 / skills</span><h2>Technical skills</h2></div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot genai"></span>GenAI / Agentic AI</div>
+      <div class="tags">
+        <span class="tag genai">LangChain</span><span class="tag genai">LangGraph</span><span class="tag genai">MCP (Model Context Protocol)</span><span class="tag genai">FastMCP</span><span class="tag genai">CrewAI</span><span class="tag genai">Agentic RAG</span><span class="tag genai">Prompt Engineering</span><span class="tag genai">Vector DBs (FAISS)</span><span class="tag genai">LLM Tool Calling</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>Languages &amp; frameworks</div>
+      <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">ASP.NET Core</span><span class="tag">SQL</span><span class="tag">Python</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>APIs &amp; architecture</div>
+      <div class="tags"><span class="tag">RESTful API design</span><span class="tag">Clean Architecture</span><span class="tag">Service-Oriented Backend Design</span><span class="tag">Data Modelling</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>Databases</div>
+      <div class="tags"><span class="tag">SQL Server (T-SQL)</span><span class="tag">Stored Procedures</span><span class="tag">Views &amp; Indexes</span><span class="tag">Query Optimization</span><span class="tag">SSMS</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>AI / Machine learning</div>
+      <div class="tags"><span class="tag">ML Model Development (Python)</span><span class="tag">Data Filtering &amp; Ranking</span><span class="tag">Intelligent Record Matching</span><span class="tag">Predictive Ranking Logic</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>CI/CD &amp; deployment</div>
+      <div class="tags"><span class="tag">Global Packaging</span><span class="tag">Namespace-Based Deployment</span><span class="tag">Multi-Environment Release Mgmt</span><span class="tag">Release Automation</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>Enterprise systems</div>
+      <div class="tags"><span class="tag">Infor Service Management (ISM)</span><span class="tag">Business Object Documents (BODs)</span><span class="tag">Cross-System Integration</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>Testing &amp; quality</div>
+      <div class="tags"><span class="tag">Playwright</span><span class="tag">Unit Testing</span><span class="tag">Regression Testing</span><span class="tag">Defect Analysis</span><span class="tag">Root Cause Analysis</span></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label"><span class="dot enterprise"></span>Tools &amp; practices</div>
+      <div class="tags"><span class="tag">Git</span><span class="tag">JIRA</span><span class="tag">Confluence</span><span class="tag">Agile/Scrum</span><span class="tag">Sprint Planning</span><span class="tag">Code Review</span><span class="tag">Technical Documentation</span></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><span class="eyebrow">04 / education</span><h2>Education</h2></div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Master of Computer Applications in Data Science</div>
+        <div class="edu-school">Jain University, Bangalore</div>
+      </div>
+      <div class="edu-date">Nov 2022 – Dec 2024</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-degree">Bachelor of Science in Computer Science and Electronics</div>
+        <div class="edu-school">St. Joseph's Degree and PG College</div>
+      </div>
+      <div class="edu-date">Aug 2017 – Jun 2020</div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-card">
+      <div class="eyebrow" style="color: color-mix(in srgb, var(--bg) 55%, transparent);">05 / contact</div>
+      <h2>Let's talk shop.</h2>
+      <p>Open to Software Engineer, Full-Stack, and AI Solutions Engineer roles bridging enterprise systems and GenAI.</p>
+      <div class="footer-actions">
+        <a class="contact-pill primary" href="mailto:abdulrahim.dudekula04@gmail.com">✉ abdulrahim.dudekula04@gmail.com</a>
+        <span class="contact-pill">📞 +91 94901 49028</span>
+        <span class="contact-pill">📍 Hyderabad, India</span>
+      </div>
+    </div>
+    <div class="foot-note">built from the résumé, for screens instead of paper</div>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+    var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.id;
+            links.forEach(function (l) {
+              l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -50% 0px' });
+      sections.forEach(function (s) { observer.observe(s); });
+    }
+  })();
+</script>
+
+</body>
+</html>
